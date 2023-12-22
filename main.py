@@ -17,27 +17,6 @@ mgr = owm.weather_manager()
 print('Бот запущен!')
 #документация OWM https://buildmedia.readthedocs.org/media/pdf/pyowm/latest/pyowm.pdf
 
-
-def read_json_file():
-    with open('table.json', 'r') as file:
-        data = json.load(file)
-    return data
-
-def write_json_file(data):
-    with open('table.json', 'w') as file:
-        json.dump(data, file, indent=2)
-
-def add_user_preference(user_id, place):
-    data = read_json_file()
-    if user_id not in data:
-        data[user_id] = {}
-    data[user_id]["set_place"] = place
-    write_json_file(data)
-
-def get_user_data(user_id):
-    data = read_json_file()
-    return data.get(user_id, {})
-
 #команда /start описывает бота
 @bot.message_handler(commands=['start'])
 def start_message(message):
