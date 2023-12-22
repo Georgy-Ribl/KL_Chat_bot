@@ -1,6 +1,6 @@
 import telebot
 from telebot import types
-from config import TOKEN
+from config import TOKEN, OWM_API
 from pyowm import OWM
 from pyowm.utils.config import get_default_config
 #Инициализация OWM
@@ -10,7 +10,7 @@ bot = telebot.TeleBot(TOKEN)
 #Инициализация OWM
 config_dict = get_default_config()
 config_dict['language'] = 'ru'
-owm = OWM('20d7c2473ee824719d8b793bb6a4388f', config_dict)
+owm = OWM(OWM_API, config_dict)
 mgr = owm.weather_manager()
 
 
